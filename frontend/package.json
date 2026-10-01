@@ -1,0 +1,24 @@
+{
+  "name": "spark-fit-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "astro": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@astrojs/check": "latest",
+    "@tailwindcss/vite": "latest",
+    "prettier": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}

@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Logo from '../components/layout/Logo.astro';
+import DisciplineCard from '../components/landing/DisciplineCard.astro';
+---
+<BaseLayout title="Spark Fit Center | Disciplina y resultados">
+  <main>
+    <section class="bg-gym-paper text-gym-black">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5"><Logo /><div class="hidden items-center gap-8 text-xs font-bold md:flex"><a href="#inicio" class="hover:text-gym-red">Inicio</a><a href="#horarios" class="hover:text-gym-red">Horarios</a><a href="#disciplinas" class="hover:text-gym-red">Disciplinas</a><a href="#ubicacion" class="hover:text-gym-red">Ubicación</a></div><a href="/login" class="bg-gym-red px-5 py-3 text-xs font-bold text-white transition hover:bg-red-700">♙ &nbsp; Iniciar sesión</a></nav>
+      <div id="inicio" class="relative mx-auto grid max-w-6xl overflow-hidden px-6 pb-16 pt-14 lg:grid-cols-2 lg:items-center"><div class="relative z-10"><p class="mb-5 text-sm font-extrabold tracking-[.22em] text-gym-red">TU MEJOR VERSIÓN</p><h1 class="max-w-xl font-display text-6xl leading-[.92] tracking-wide sm:text-8xl">ENTRENAMIENTO<br />FUNCIONAL Y<br />ARTES MARCIALES</h1><p class="mt-7 max-w-md text-sm leading-6 text-neutral-600">Disciplina, fuerza y comunidad. En Spark Fit te ayudamos a cumplir tus objetivos con entrenadores profesionales y un ambiente motivador.</p><a href="#disciplinas" class="mt-8 inline-flex bg-gym-red px-6 py-4 text-sm font-bold text-white hover:bg-red-700">Conoce nuestras disciplinas <span class="ml-5">→</span></a></div><div class="relative mt-12 min-h-[420px] lg:mt-0"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=85" alt="Atleta entrenando en Spark Fit Center" class="relative mx-auto h-[420px] w-full max-w-lg object-cover object-center mix-blend-multiply" /></div></div>
+    </section>
+    <section id="horarios" class="relative overflow-hidden bg-gym-black px-6 py-20 text-white"><div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-center"><div><p class="text-sm font-extrabold tracking-[.22em] text-gym-red">HORARIOS</p><h2 class="mt-3 font-display text-6xl tracking-wide">Nuestras Clases</h2><p class="mt-4 max-w-sm text-sm leading-6 text-neutral-400">Entrena a tu ritmo. Estamos listos para acompañarte durante toda la semana.</p><a href="#horarios-tabla" class="mt-7 inline-block border border-gym-red px-5 py-3 text-xs font-bold hover:bg-gym-red">Ver horarios →</a></div><div id="horarios-tabla" class="overflow-hidden border border-neutral-700 text-sm"><div class="grid grid-cols-2 bg-neutral-900 p-4 font-bold"><span>Día</span><span>Horario</span></div><div class="grid grid-cols-2 border-t border-neutral-700 p-4 text-neutral-300"><span>Lunes a viernes</span><span>06:00 – 22:30</span></div><div class="grid grid-cols-2 border-t border-neutral-700 p-4 text-neutral-300"><span>Sábado</span><span>08:00 – 20:00</span></div><div class="grid grid-cols-2 border-t border-neutral-700 p-4 text-neutral-300"><span>Domingo</span><span>08:00 – 12:00</span></div></div></div></section>
+    <section id="disciplinas" class="paper-noise bg-gym-paper px-6 py-20 text-gym-black"><div class="mx-auto max-w-6xl"><p class="text-sm font-extrabold tracking-[.22em] text-gym-red">DISCIPLINAS</p><h2 class="mt-3 font-display text-6xl tracking-wide">Entrena lo que te mueve</h2><div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"><DisciplineCard image="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=85" title="Pesas" text="Aumenta tu fuerza, mejora tu condición física y construye tu mejor versión." /><DisciplineCard image="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=85" title="CrossFit" text="Entrenamientos funcionales de alta intensidad para todo el cuerpo." /><DisciplineCard image="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=900&q=85" title="Artes marciales" text="Disciplina, control y respeto en cada entrenamiento." /></div></div></section>
+    <section id="ubicacion" class="bg-gym-black px-6 py-16 text-white"><div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:items-center"><div id="spark-map" class="h-72 overflow-hidden border border-neutral-700 bg-neutral-900" aria-label="Mapa de Spark Fit Center"></div><div><p class="text-sm font-extrabold tracking-[.22em] text-gym-red">UBICACIÓN</p><h2 class="mt-3 font-display text-6xl">Encuéntranos</h2><p class="mt-4 text-sm leading-6 text-neutral-400">Av. Humberto Suárez Roca<br />Salón Los Gemelos</p><a href="https://maps.app.goo.gl/pgTzPsg8G4WYcrT47" target="_blank" rel="noreferrer" class="mt-6 inline-block border border-gym-red px-5 py-3 text-xs font-bold hover:bg-gym-red">Cómo llegar →</a></div></div></section>
+    <script>
+      type MapInstance = { setView: (center: [number, number], zoom: number) => MapInstance; remove: () => void };
+      type Leaflet = { map: (element: HTMLElement, options?: Record<string, unknown>) => MapInstance; tileLayer: (url: string, options: Record<string, unknown>) => { addTo: (map: MapInstance) => void }; marker: (position: [number, number]) => { addTo: (map: MapInstance) => { bindPopup: (content: string) => { openPopup: () => void } } } };
+      const loadLeafletMap = () => {
+        const element = document.querySelector<HTMLElement>('#spark-map');
+        if (!element) return;
+        const leaflet = (window as Window & { L?: Leaflet }).L;
+        if (!leaflet) return;
+        const address = 'Av. Humberto Suárez Roca, Salón Los Gemelos';
+        const map = leaflet.map(element, { scrollWheelZoom: true, zoomControl: true }).setView([-17.7833, -63.1821], 14);
+        leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors', maxZoom: 19 }).addTo(map);
+        fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=${encodeURIComponent(address)}`)
+          .then((response) => response.json() as Promise<Array<{ lat: string; lon: string }>>)
+          .then((results) => {
+            const place = results[0];
+            if (!place) return;
+            const position: [number, number] = [Number(place.lat), Number(place.lon)];
+            map.setView(position, 18);
+            leaflet.marker(position).addTo(map).bindPopup(`<strong>Spark Fit Center</strong><br />${address}`).openPopup();
+          })
+          .catch(() => undefined);
+      };
+      const leafletScript = document.createElement('script');
+      leafletScript.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      leafletScript.crossOrigin = '';
+      leafletScript.onload = loadLeafletMap;
+      document.head.appendChild(leafletScript);
+    </script>
+    <footer class="bg-neutral-950 px-6 py-8 text-white"><div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 sm:flex-row"><img src="/images/spark-fit-logo-light.svg" alt="Spark Fit Center" class="h-12 w-auto" /><div class="text-[10px] tracking-[.35em] text-neutral-500">FUERZA &nbsp;|&nbsp; DISCIPLINA &nbsp;|&nbsp; COMUNIDAD</div></div></footer>
+  </main>
+</BaseLayout>

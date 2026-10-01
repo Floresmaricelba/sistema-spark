@@ -1,0 +1,7 @@
+---
+const { image, title, text } = Astro.props;
+---
+<article class="group overflow-hidden bg-white text-gym-black shadow-sm">
+  <div class="relative h-40 overflow-hidden bg-neutral-800"><img src={image} alt={title} class="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0" /><span class="absolute bottom-3 left-3 grid h-10 w-10 place-items-center bg-gym-red text-xl text-white">✦</span></div>
+  <div class="p-5"><h3 class="font-display text-2xl tracking-wide">{title}</h3><p class="mt-2 text-sm leading-6 text-neutral-600">{text}</p></div>
+</article>

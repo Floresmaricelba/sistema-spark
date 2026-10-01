@@ -1,0 +1,35 @@
+{
+  "name": "spec-kit-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "tsx src/server.ts",
+    "build": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@hono/node-server": "latest",
+    "@hono/zod-validator": "latest",
+    "bcrypt": "latest",
+    "hono": "latest",
+    "pg": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "latest",
+    "@types/node": "latest",
+    "@types/pg": "latest",
+    "eslint": "latest",
+    "prettier": "latest",
+    "which": "latest",
+    "tsx": "latest",
+    "typescript": "latest",
+    "typescript-eslint": "latest",
+    "vercel": "latest",
+    "vitest": "latest"
+  }
+}

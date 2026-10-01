@@ -1,0 +1,16 @@
+---
+import '../styles/global.css';
+const { title = 'SPARK FIT CENTER' } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Spark Fit Center: disciplina, fuerza y comunidad." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <title>{title}</title>
+  </head>
+  <body><slot /></body>
+</html>

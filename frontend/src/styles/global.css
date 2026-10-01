@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+  --color-gym-red: #e52532;
+  --color-gym-black: #171717;
+  --color-gym-paper: #f7f7f5;
+}
+
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #171717; font-family: 'Inter', sans-serif; }
+.brush-divider { clip-path: polygon(0 22%, 8% 31%, 16% 18%, 28% 30%, 42% 15%, 57% 28%, 71% 13%, 85% 26%, 100% 12%, 100% 100%, 0 100%); }
+.paper-noise { background-image: radial-gradient(#1112 0.7px, transparent 0.7px); background-size: 6px 6px; }
+.focus-ring:focus-visible { outline: 3px solid #e52532; outline-offset: 3px; }
