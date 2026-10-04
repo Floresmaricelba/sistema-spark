@@ -2,13 +2,16 @@ import pg from 'pg';
 import { getEnv } from '../config/env.js';
 
 const { Pool } = pg;
+const env = getEnv();
+const databaseHost = new URL(env.DATABASE_URL).hostname;
+const requiresSsl = databaseHost.endsWith('.supabase.co') || databaseHost.includes('.pooler.supabase.com');
 
 export const pool = new Pool({
-  connectionString: getEnv().DATABASE_URL,
+  connectionString: env.DATABASE_URL,
   max: 5,
   idleTimeoutMillis: 30_000,
   connectionTimeoutMillis: 10_000,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : undefined,
+  ssl: requiresSsl || process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : undefined,
 });
 
 export async function checkDatabaseConnection(): Promise<void> {

@@ -2,7 +2,8 @@ import { getToken, clearSession } from './auth';
 import type { Cliente, ClienteFilters, ClienteForm } from '../types/cliente';
 import type { ApiError, LoginResponse } from '../types/api';
 
-const API_URL = (import.meta.env.PUBLIC_API_URL ?? 'http://localhost:3000').replace(/\/$/, '');
+const configuredApiUrl = import.meta.env.PUBLIC_API_URL;
+const API_URL = (configuredApiUrl ?? (import.meta.env.PROD ? '' : 'http://localhost:3000')).replace(/\/$/, '');
 
 export class ApiRequestError extends Error {
   status: number;

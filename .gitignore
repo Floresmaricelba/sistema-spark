@@ -1,6 +1,9 @@
 node_modules/
+.env
+.env.*
+!.env.example
 dist/
 .astro/
-.env
 .vercel/
+coverage/
 *.log

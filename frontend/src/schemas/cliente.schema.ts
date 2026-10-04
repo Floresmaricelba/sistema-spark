@@ -11,8 +11,8 @@ export const clienteSchema = z.object({
 export const clienteFiltersSchema = z.object({
   nombreCliente: z.string().optional(),
   telefono: z.string().regex(/^\d{8}$/, 'El teléfono debe tener 8 dígitos').optional().or(z.literal('')),
-  tipoEntrada: z.enum(['mensual', 'semanal', 'sesión']).optional(),
-  tipoPago: z.enum(['efectivo', 'QR']).optional(),
+  tipoEntrada: z.enum(['mensual', 'semanal', 'sesión']).optional().or(z.literal('')).transform((value) => value || undefined),
+  tipoPago: z.enum(['efectivo', 'QR']).optional().or(z.literal('')).transform((value) => value || undefined),
   fechaDesde: z.string().optional(),
   fechaHasta: z.string().optional(),
 }).refine((data) => !data.fechaDesde || !data.fechaHasta || data.fechaDesde <= data.fechaHasta, {
