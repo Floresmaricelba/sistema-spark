@@ -5,13 +5,13 @@
       "root": "backend",
       "framework": "hono",
       "entrypoint": "api/index.ts",
-      "installCommand": "npm ci",
+      "installCommand": "npm install --include=optional",
       "buildCommand": "npm run build"
     },
     "frontend": {
       "root": "frontend",
       "framework": "astro",
-      "installCommand": "npm ci",
+      "installCommand": "npm install --include=optional",
       "buildCommand": "npm run build",
       "outputDirectory": "dist"
     }
