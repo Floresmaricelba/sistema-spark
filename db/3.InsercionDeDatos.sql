@@ -1,5 +1,5 @@
 INSERT INTO Administrador (idAdmin, nombreAdmin, contrasena, nombreUsuario)
-VALUES (1, 'Administrador Flores', 'floresadmi06', 'flores');
+VALUES (1, 'Administrador Flores', 'floresadmi06', 'floresadm');
 
 INSERT INTO Cliente
     (idCliente, nombreCliente, telefono, montoPago, tipoEntrada, tipoPago)

@@ -12,7 +12,7 @@ API REST construida con Hono, TypeScript y PostgreSQL.
 
 ## Rutas
 
-- `POST /api/auth/login`: recibe `{ "nombreUsuario": "flores", "contrasena": "floresadmi06" }`.
+- `POST /api/auth/login`: recibe `{ "nombreUsuario": "floresadm", "contrasena": "floresadmi06" }`.
 - `POST /api/auth/logout`: cierre de sesión informativo; el cliente elimina el JWT.
 - `GET /api/clientes`: lista clientes y admite `nombreCliente`, `telefono`, `tipoEntrada`, `tipoPago`, `fechaDesde` y `fechaHasta`.
 - `POST /api/clientes`: registra un cliente.

@@ -4,8 +4,8 @@ import { createClienteSchema, clienteFiltersSchema } from '../src/schemas/client
 
 describe('validación de autenticación', () => {
   it('acepta el administrador de ejemplo', () => {
-    expect(loginSchema.parse({ nombreUsuario: 'flores', contrasena: 'floresadmi06' })).toEqual({
-      nombreUsuario: 'flores',
+    expect(loginSchema.parse({ nombreUsuario: 'floresadm', contrasena: 'floresadmi06' })).toEqual({
+      nombreUsuario: 'floresadm',
       contrasena: 'floresadmi06',
     });
   });
